@@ -4,10 +4,10 @@ This repository is to provide Powershell scripts I use to automate backup/restor
 
 These have been tested with an G5 EC2 instance set up with a Microsoft Windows Server 2022 Base (ami-06c2ec1ceac22e8d6 64-bit x86).
 
-### Easy way: 
+### Easy set up to use with: 
 Use a service like [AirGPU](https://airgpu.com)
 
-### DIY:
+### DIY set up to use with:
 1. Create Lambda functions to snapshot and create AMI of your instance from [Keith Vassallo's guide](https://github.com/keithvassallomt/parsec-aws-automation)
 1. Script to quickly [install useful programs and drivers](https://github.com/chongkwongsheng/g5-cloudrig-lite)
 
