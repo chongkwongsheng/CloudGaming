@@ -16,9 +16,11 @@ After setting up the instance, the Powershell scripts at startup and shutdown th
 
 ## WARNING
 
-The startup and shutdown scripts can transfer the Hogwarts Legacy game files (~70GB) to and from ephemeral storage in under 90 seconds when the instance is fully initialised. However, when running the startup script from a freshly initialised instance even with gp3 storage with 16,000 IOPS and 1,000 MB/s, the penalty from loading snapshot intialisation can result in increasing this to about 10 minutes just for Hogwarts Legacy.
+The startup and shutdown scripts can transfer the Hogwarts Legacy game files (~70GB) to and from ephemeral storage in under 90 seconds when the instance is fully initialised. 
 
-It is designed with the purpose of moving Steam game files to and from 'D:\' at startup and shut down.
+However, when running the startup script to initialise an instance from a snapshot with gp3 storage with 16,000 IOPS and 1,000 MB/s, the penalty from loading snapshot intialisation can result in increasing startup by about 10 minutes just for Hogwarts Legacy.
+
+Please remember that I created these scripts with the purpose of moving Steam game files to and from 'D:\' at startup and shut down respectively.
 
 These scripts also only make sense if you had set up your cloud gaming instance to create from a custom AMI (e.g. Keith Vassallo's guide) and are snapshotting the volumes upon termination.
 
@@ -34,4 +36,5 @@ These scripts also only make sense if you had set up your cloud gaming instance 
 1. Do the same for `BackupEphemeral.ps1` under Shutdown.
 1. Navigate to Local Computer Policy > Administrative Templates > System > Scripts > Specify maximum wait time for Group Policy scripts.
 1. Enable and set this to 1800 seconds (30 min) to prevent time out. Adjust accordingly depending on how much data you will need to backup. As reference, it takes 10-12 minutes for restoring ~70GB on startup.
-1. 
+1. Shut down the instance and launch a new one from its snapshot.
+1. When logging in, you will now see `D:\` with the Steam folder intact.
